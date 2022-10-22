@@ -1,7 +1,13 @@
 
+.root {
+  padding: 36px;
+}
+
 .table {
   display: flex;
   flex-direction: column;
+
+  margin-top: 20px;
 }
 
 .row {

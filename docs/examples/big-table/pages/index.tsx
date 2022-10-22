@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import styles from '../styles/Home.module.css';
-import { Truncate } from 'truncate';
+import { Truncate } from 'tt-truncate';
 
 import React, {
     PropsWithChildren,
@@ -53,7 +53,7 @@ TruncateResize.displayName = 'TruncateResize';
 const Home: NextPage = () => {
     const [_, setState] = useState(0);
     return (
-        <div>
+        <div className={styles.root}>
             <button onClick={() => setState(Date.now())}>Rerender</button>
             <div className={styles.table}>
                 {[...Array(2000)].map((_, index) => {
