@@ -1,0 +1,25 @@
+
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  border: 1px black solid;
+  width: 50%;
+  padding: 10px;
+}
+
+.truncateWrapper {
+  display: flex;
+  white-space: nowrap;
+}
+
+.first {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
