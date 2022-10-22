@@ -1,0 +1,1 @@
+![workflow](https://github.com/SinimaWath/tt-truncate/actions/workflows/deployment.yml/badge.svg)
