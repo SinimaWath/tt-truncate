@@ -10,6 +10,7 @@
   "scripts": {
     "test": "jest --testEnvironment=jsdom",
     "build": "rm -rf dist && parcel build",
+    "ci": "npm install",
     "prepublishOnly": "npm run test && npm run build"
   },
   "type": "module",
