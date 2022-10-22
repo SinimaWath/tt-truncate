@@ -16,7 +16,7 @@ export const Truncate: React.FC<PropsWithChildren<TruncateProps>> = memo(
         const lastPart = children.slice(children.length - tailLength);
 
         return (
-            <div
+            <span
                 title={title}
                 className={className}
                 style={{ display: 'flex', whiteSpace: 'nowrap' }}
@@ -25,7 +25,7 @@ export const Truncate: React.FC<PropsWithChildren<TruncateProps>> = memo(
                     {firstPart}
                 </span>
                 {lastPart}
-            </div>
+            </span>
         );
     }
 );
