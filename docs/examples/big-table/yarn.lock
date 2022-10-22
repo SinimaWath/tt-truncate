@@ -1700,10 +1700,10 @@ tsutils@^3.21.0:
   dependencies:
     tslib "^1.8.1"
 
-tt-truncate@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/tt-truncate/-/tt-truncate-1.0.0.tgz#f095b5f9dec645aa5168523d4414d1af3225b0be"
-  integrity sha512-nPMckNgyN8yQxG1c1ra/Uk6cZ9WkJRgrM4FbpDNBECXWkv8Agerg/R5EfrlE1gTh2q+DHqaMsl0DZ79xIx2ltw==
+tt-truncate@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/tt-truncate/-/tt-truncate-1.0.1.tgz#031f078048800c0607e5158e43ba3b4c008337ae"
+  integrity sha512-VIjiveG58XVSoMWxURomoWFvqfBOu5vwf/tEkb6FZ0SrWAGAupNz+IDzBrhwuytBbqwG9m+lLtpUbOFv4Dihyg==
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
