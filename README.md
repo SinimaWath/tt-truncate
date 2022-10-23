@@ -2,7 +2,7 @@
 
 # TT Truncate
 
-A tiny, fast, ssr-friendly, zero-deps string truncate React component
+A tiny, fast, ssr-friendly, zero-deps string truncate React component.
 
 - **Small**: 600 B (minified and gzipped). No dependencies. Size Limit controls the size.
 - **Fast**: 500ms (slowdown x6 - mobile cpu) re-drawing time of 4000+ components.
@@ -31,7 +31,7 @@ npm install tt-truncate
 
 ## Usage
 
-Fit text to container (div)
+Fit text to container (div). Crop string in the middle.
 ```jsx
 <div>
     <Truncate tailLength={2}>I Love JetBrains</Truncate>
