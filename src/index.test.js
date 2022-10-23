@@ -118,6 +118,20 @@ describe('Truncate', () => {
             expect(container.childNodes[0].childNodes[0]).toHaveTextContent('Te');
             expect(container.childNodes[0].childNodes[1]).toHaveTextContent('xt');
         })
+
+        it('should replace start and end space to nbsp', () => {
+            const { container } = render(<Truncate tailLength={2}>Tex  t</Truncate>);
+
+            expect(container.childNodes[0].childNodes[0].innerHTML).toBe('Tex&nbsp;');
+            expect(container.childNodes[0].childNodes[1].nodeValue).toBe('\xa0t');
+        })
+
+        it('should trim other start and end space to nbsp', () => {
+            const { container } = render(<Truncate tailLength={4}>Tex           t</Truncate>);
+
+            expect(container.childNodes[0].childNodes[0].innerHTML).toBe('Tex&nbsp;');
+            expect(container.childNodes[0].childNodes[1].nodeValue).toBe('\xa0t');
+        })
     })
 
     describe('clipboard', () => {
