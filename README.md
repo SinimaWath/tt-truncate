@@ -19,7 +19,7 @@ import {Truncate} from "tt-truncate";
 
 ## Showcases
 
-See our [examples](/docs/examples).
+See our [examples](/docs/examples) and Showcase paragraph for url.
 - [Big Table Next JS](/docs/examples/big-table)
 - [Create React App](/docs/examples/cra)
 
