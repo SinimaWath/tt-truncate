@@ -25,3 +25,6 @@ jobs:
 
       - name: Run the tests
         run: npm run test
+
+      - name: Size limit
+        run: npm run size-limit
