@@ -6,7 +6,7 @@ A tiny, fast, ssr-friendly, zero-deps string truncate React component
 
 - **Small**: 600 B (minified and gzipped). No dependencies. Size Limit controls the size.
 - **Fast**: 500ms (slowdown x6 - mobile cpu) re-drawing time of 4000+ components.
-- **SSR**: Ready for SSR. No JS, no DOM manipulation.
+- **SSR**: Ready for SSR. No DOM manipulation.
 - **Native Functionality**: Search and copy works as expected from native truncation.
 
 ```jsx
@@ -64,4 +64,4 @@ Add title
 
 ## Browser Compatability
 
-The package works in browsers where flex-box is supported.
+The package works in browsers where display: flex is supported.
