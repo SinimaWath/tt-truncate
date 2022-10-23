@@ -52,3 +52,7 @@ Add title
     <Truncate tailLength={2} title={'Super Title'}>I Love JetBrains</Truncate>
 </div>
 ```
+
+### Props
+
+- **children** - one-line string, without special characters (\n, nbsp and etc)

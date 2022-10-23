@@ -13,7 +13,7 @@ export const Truncate: React.FC<PropsWithChildren<TruncateProps>> = memo(
         }
 
         /**
-         * Оптимизируем, 2 крайних случая, в которых строка режется только в конце.
+         * Optimize, 2 corner cases in which the string is cut only at the end.
          */
         if (tailLength <= 0 || tailLength >= children.length) {
             return (
@@ -38,15 +38,32 @@ export const Truncate: React.FC<PropsWithChildren<TruncateProps>> = memo(
             <span
                 title={title}
                 className={className}
+                onCopy={(event) => {
+                    const selection = document.getSelection();
+                    if (!selection) {
+                        return;
+                    }
+
+                    const clearedSelection = selection
+                        .toString()
+                        .replaceAll('\n', '')
+                        .replaceAll('\xa0', ' ');
+
+                    event.clipboardData.setData('text/plain', clearedSelection);
+                    event.preventDefault();
+                }}
                 style={{ display: 'flex', whiteSpace: 'nowrap' }}
             >
                 <span style={{ textOverflow: 'ellipsis', overflow: 'hidden' }}>
-                    {firstPart}
+                    {firstPart.endsWith(' ')
+                        ? firstPart.trimEnd() + '\xa0'
+                        : firstPart}
                 </span>
-                {lastPart}
+                {lastPart.startsWith(' ')
+                    ? '\xa0' + lastPart.trimStart()
+                    : lastPart}
             </span>
         );
     }
 );
-
 
