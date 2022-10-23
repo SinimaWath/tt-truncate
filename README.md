@@ -20,7 +20,8 @@ import {Truncate} from "tt-truncate";
 ## Showcases
 
 See our [examples](/docs/examples).
-- [Big Table](/docs/examples/big-table)
+- [Big Table Next JS](/docs/examples/big-table)
+- [Create React App](/docs/examples/cra)
 
 ## Install
 

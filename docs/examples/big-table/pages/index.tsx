@@ -8,6 +8,7 @@ const Home: NextPage = () => {
     const ref = useRef<HTMLDivElement | null>(null);
     return (
         <div className={styles.root}>
+            <h1>Table with 4000 Truncate components</h1>
             <button
                 onClick={() => {
                     const parent = ref.current!.parentElement;
@@ -34,6 +35,8 @@ const Home: NextPage = () => {
             >
                 Toggle fixed 500px
             </button>
+            <p>- Resize your browser or click Toggle fixed 500px</p>
+            <p>- Hover first column text to see hover title</p>
             <div className={styles.table} ref={ref}>
                 {[...Array(2000)].map((_, index) => {
                     return (
