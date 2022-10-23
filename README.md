@@ -4,7 +4,7 @@
 
 A tiny, fast, ssr-friendly, zero-deps string truncate React component
 
-- **Small**: 374 B (minified and gzipped). No dependencies. Size Limit controls the size.
+- **Small**: 600 B (minified and gzipped). No dependencies. Size Limit controls the size.
 - **Fast**: 500ms (slowdown x6 - mobile cpu) re-drawing time of 4000+ components.
 - **SSR**: Ready for SSR. No JS, no DOM manipulation.
 - **Native Functionality**: Search and copy works as expected from native truncation.
@@ -54,5 +54,9 @@ Add title
 ```
 
 ### Props
-
-- **children** - one-line string, without special characters (\n, nbsp and etc)
+| Prop       | Type   | Description                                                                               |
+|------------|--------|-------------------------------------------------------------------------------------------|
+| children   | string | Must be one line string, without special characters. Otherwise the behaviour is undefined |
+| title      | string | Shown on hover                                                                            |
+| tailLength | number | Length of tail                                                                            |
+| className  | string | Class name applied to text                                                                |
