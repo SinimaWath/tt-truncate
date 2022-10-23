@@ -1,6 +1,6 @@
 {
   "name": "tt-truncate",
-  "version": "1.0.2",
+  "version": "1.1.2",
   "description": "",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
@@ -46,7 +46,7 @@
   "source": "src/index.tsx",
   "size-limit": [
     {
-      "limit": "400 B",
+      "limit": "600 B",
       "path": "src/index.tsx"
     }
   ]
