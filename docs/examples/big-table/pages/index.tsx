@@ -2,14 +2,26 @@ import type { NextPage } from 'next';
 import styles from '../styles/Home.module.css';
 import { Truncate } from 'tt-truncate';
 
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 
 const Home: NextPage = () => {
-    const [_, setState] = useState(0);
     const ref = useRef<HTMLDivElement | null>(null);
     return (
         <div className={styles.root}>
-            <button onClick={() => setState(Date.now())}>Rerender</button>
+            <button
+                onClick={() => {
+                    const parent = ref.current!.parentElement;
+                    setTimeout(() => {
+                        ref.current!.remove();
+                    }, 0);
+
+                    setTimeout(() => {
+                        parent!.append(ref.current!);
+                    }, 10);
+                }}
+            >
+                Rerender (remove and append)
+            </button>
             <button
                 onClick={() => {
                     const width = ref.current!.style.width;
@@ -27,13 +39,21 @@ const Home: NextPage = () => {
                     return (
                         <div key={index} className={styles.row}>
                             <div className={styles.cell}>
-                                <Truncate tailLength={0} title={'title'}>
-                                    asdsadkmsaldksamdlksadmsalkdmaslkdmasldkamsdlkasmdlaskdmaslkdmasldkasmdlksadm
+                                <Truncate
+                                    tailLength={5}
+                                    title={'JetBrains Title'}
+                                >
+                                    Whatever platform or language you work with,
+                                    JetBrains has a development tool for you.
                                 </Truncate>
                             </div>
                             <div className={styles.cell}>
-                                <Truncate tailLength={10}>
-                                    asdsadkmsaldksamdlksadmsalkdmaslkdmasldkamsdlkasmdlaskdmaslkdmasldkasmdlksadm
+                                <Truncate tailLength={12}>
+                                    However big or small your team is, our
+                                    products will ensure that it always has a
+                                    smooth and enjoyable experience when
+                                    building your code, planning your work,
+                                    collaborating
                                 </Truncate>
                             </div>
                         </div>
