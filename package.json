@@ -46,6 +46,7 @@
   "source": "src/index.tsx",
   "size-limit": [
     {
+      "limit": "400 B",
       "path": "src/index.tsx"
     }
   ]
