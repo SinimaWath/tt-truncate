@@ -60,3 +60,8 @@ Add title
 | title      | string | Shown on hover                                                                            |
 | tailLength | number | Length of tail                                                                            |
 | className  | string | Class name applied to text                                                                |
+
+
+## Browser Compatability
+
+The package works in browsers where flex-box is supported.

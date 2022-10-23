@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { Truncate } from './index'
 
 describe('Truncate', () => {
@@ -117,6 +117,84 @@ describe('Truncate', () => {
 
             expect(container.childNodes[0].childNodes[0]).toHaveTextContent('Te');
             expect(container.childNodes[0].childNodes[1]).toHaveTextContent('xt');
+        })
+    })
+
+    describe('clipboard', () => {
+        it('should copy to clipboard selected text', async () => {
+            const rawGetSelection = document.getSelection;
+
+            document.getSelection = () => ({
+                toString: () => {
+                    return 'Text';
+                }
+            })
+
+            const setData = jest.fn();
+            render(<Truncate tailLength={2} title={'Title'}>Text</Truncate>);
+
+            const element = await screen.getByTitle('Title');
+
+            fireEvent.copy(element, {
+                clipboardData: {
+                    setData,
+                }
+            });
+
+            expect(setData).toHaveBeenCalledWith('text/plain', 'Text')
+
+            document.getSelection = rawGetSelection;
+        });
+
+
+        it('should copy to clipboard selected text without \n', async () => {
+            const rawGetSelection = document.getSelection;
+
+            document.getSelection = () => ({
+                toString: () => {
+                    return '\nText\n';
+                }
+            })
+
+            const setData = jest.fn();
+            render(<Truncate tailLength={2} title={'Title'}>Text</Truncate>);
+
+            const element = await screen.getByTitle('Title');
+
+            fireEvent.copy(element, {
+                clipboardData: {
+                    setData,
+                }
+            });
+
+            expect(setData).toHaveBeenCalledWith('text/plain', 'Text')
+
+            document.getSelection = rawGetSelection;
+        })
+
+        it('should copy to clipboard selected text without \xa0', async () => {
+            const rawGetSelection = document.getSelection;
+
+            document.getSelection = () => ({
+                toString: () => {
+                    return '\xa0Text\xa0';
+                }
+            })
+
+            const setData = jest.fn();
+            render(<Truncate tailLength={2} title={'Title'}>Text</Truncate>);
+
+            const element = await screen.getByTitle('Title');
+
+            fireEvent.copy(element, {
+                clipboardData: {
+                    setData,
+                }
+            });
+
+            expect(setData).toHaveBeenCalledWith('text/plain', ' Text ')
+
+            document.getSelection = rawGetSelection;
         })
     })
 })
