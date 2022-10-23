@@ -110,4 +110,13 @@ describe('Truncate', () => {
             expect(container.querySelector('.className')).toBeInTheDocument();
         });
     })
+
+    describe('truncate', () => {
+        it('should truncate text for 2 elems', () => {
+            const { container } = render(<Truncate tailLength={2}>Text</Truncate>);
+
+            expect(container.childNodes[0].childNodes[0]).toHaveTextContent('Te');
+            expect(container.childNodes[0].childNodes[1]).toHaveTextContent('xt');
+        })
+    })
 })
