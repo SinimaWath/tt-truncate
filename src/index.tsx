@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, memo } from 'react';
+import React, { PropsWithChildren, memo, ClipboardEvent } from 'react';
 
 export interface TruncateProps {
     tailLength: number;
@@ -34,24 +34,26 @@ export const Truncate: React.FC<PropsWithChildren<TruncateProps>> = memo(
         const firstPart = children.slice(0, children.length - tailLength);
         const lastPart = children.slice(children.length - tailLength);
 
+        const onCopy = (event: ClipboardEvent<HTMLSpanElement>) => {
+            const selection = document.getSelection();
+            if (!selection) {
+                return;
+            }
+
+            const clearedSelection = selection
+                .toString()
+                .replaceAll('\n', '')
+                .replaceAll('\xa0', ' ');
+
+            event.clipboardData.setData('text/plain', clearedSelection);
+            event.preventDefault();
+        }
+
         return (
             <span
                 title={title}
                 className={className}
-                onCopy={(event) => {
-                    const selection = document.getSelection();
-                    if (!selection) {
-                        return;
-                    }
-
-                    const clearedSelection = selection
-                        .toString()
-                        .replaceAll('\n', '')
-                        .replaceAll('\xa0', ' ');
-
-                    event.clipboardData.setData('text/plain', clearedSelection);
-                    event.preventDefault();
-                }}
+                onCopy={onCopy}
                 style={{ display: 'flex', whiteSpace: 'nowrap' }}
             >
                 <span style={{ textOverflow: 'ellipsis', overflow: 'hidden' }}>
