@@ -6,7 +6,7 @@ A tiny, fast, ssr-friendly, zero-deps string truncate React component
 
 - **Small**: 374 B (minified and gzipped). No dependencies. Size Limit controls the size.
 - **Fast**: 500ms (slowdown x6 - mobile cpu) re-drawing time of 4000+ components.
-- **SSR**: Ready for SSR. No JS, no DOM.
+- **SSR**: Ready for SSR. No JS, no DOM manipulation.
 - **Native Functionality**: Search and copy works as expected from native truncation.
 
 ```jsx
