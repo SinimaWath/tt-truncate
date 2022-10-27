@@ -1,0 +1,4 @@
+.hiddenLastPart::after {
+    content: "\a";
+    white-space: pre;
+}

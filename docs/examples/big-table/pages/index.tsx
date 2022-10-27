@@ -1,5 +1,7 @@
 import type { NextPage } from 'next';
 import styles from '../styles/Home.module.css';
+import truncateStyles from '../styles/Truncate.module.css';
+
 import { Truncate } from 'tt-truncate';
 import React, { PropsWithChildren, memo, useRef, ClipboardEvent } from 'react';
 
@@ -65,7 +67,10 @@ export const TruncateHiddenText: React.FC<PropsWithChildren<TruncateProps>> =
             >
                 <span style={{ textOverflow: 'ellipsis', overflow: 'hidden' }}>
                     {firstPart}
-                    <span style={{ whiteSpace: 'pre' }} className={styles.span}>
+                    <span
+                        style={{ whiteSpace: 'pre' }}
+                        className={truncateStyles.hiddenLastPart}
+                    >
                         {lastPart}
                     </span>
                 </span>

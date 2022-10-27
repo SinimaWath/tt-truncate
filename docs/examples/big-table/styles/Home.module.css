@@ -24,8 +24,3 @@
 .root button {
   margin-right: 10px;
 }
-
-.span:before {
-  content: "\a";
-  white-space: pre;
-}
