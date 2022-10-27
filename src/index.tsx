@@ -47,7 +47,7 @@ export const Truncate: React.FC<PropsWithChildren<TruncateProps>> = memo(
 
             event.clipboardData.setData('text/plain', clearedSelection);
             event.preventDefault();
-        }
+        };
 
         return (
             <span
@@ -68,4 +68,3 @@ export const Truncate: React.FC<PropsWithChildren<TruncateProps>> = memo(
         );
     }
 );
-
