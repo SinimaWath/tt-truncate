@@ -44,9 +44,10 @@ export const TruncateHiddenText: React.FC<PropsWithChildren<TruncateProps>> =
                 return;
             }
 
-            const [firstPart = ''] = selection.toString().split('\u200C');
+            // \u200C is &zwnj; - our delimiter
+            const [copyPart = ''] = selection.toString().split('\u200C');
 
-            event.clipboardData.setData('text/plain', firstPart);
+            event.clipboardData.setData('text/plain', copyPart);
             event.preventDefault();
         };
 
