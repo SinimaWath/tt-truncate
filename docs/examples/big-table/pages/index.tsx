@@ -73,6 +73,8 @@ export const TruncateHiddenText: React.FC<PropsWithChildren<TruncateProps>> =
         );
     });
 
+TruncateHiddenText.displayName = 'TruncateHiddenText';
+
 const Home: NextPage = () => {
     const ref = useRef<HTMLDivElement | null>(null);
     return (
@@ -119,7 +121,7 @@ const Home: NextPage = () => {
                         </strong>
                     </div>
                 </div>
-                {[...Array(1)].map((_, index) => {
+                {[...Array(2000)].map((_, index) => {
                     return (
                         <div key={index} className={styles.row}>
                             <div className={styles.cell}>
